@@ -1,0 +1,125 @@
+let
+    InitialYear = 2021,
+    FinalYear = Date.Year(DateTime.LocalNow()),
+
+    // Defines the initial date
+    InitialDate = Date.StartOfYear(#date(InitialYear, 1, 1)),
+
+    // Defines the final date
+    FinalDate = Date.EndOfYear(#date(FinalYear, 12, 31)),
+
+    // Counts the number of days between the two dates
+    NumberOfDays = Duration.Days(FinalDate - InitialDate) + 1,
+
+    // Creates the date list
+    DateList = List.Dates(
+        InitialDate,
+        NumberOfDays,
+        #duration(1, 0, 0, 0)
+    ),
+
+    // Converts the list to a table
+    ConvertToTable = Table.FromList(
+        DateList,
+        Splitter.SplitByNothing(),
+        null,
+        null,
+        ExtraValues.Error
+    ),
+
+    // Changes the column type
+    ChangeType = Table.TransformColumnTypes(
+        ConvertToTable,
+        {{"Column1", type date}}
+    ),
+
+    // Renames the column
+    RenameColumn = Table.RenameColumns(
+        ChangeType,
+        {{"Column1", "Date"}}
+    ),
+
+    // Creates additional columns
+
+    // Creates Year column
+    Year = Table.AddColumn(
+        RenameColumn,
+        "Year",
+        each Date.Year([Date]),
+        Int64.Type
+    ),
+
+    // Creates Month Number column
+    Month = Table.AddColumn(
+        Year,
+        "Month",
+        each Date.Month([Date]),
+        Int64.Type
+    ),
+
+    // Creates Month Name column
+    MonthName = Table.AddColumn(
+        Month,
+        "Month_Name",
+        each Date.MonthName([Date], "en-US"),
+        type text
+    ),
+
+    // Creates Day of Month column
+    DayOfMonth = Table.AddColumn(
+        MonthName,
+        "Day_Of_Month",
+        each Date.Day([Date]),
+        Int64.Type
+    ),
+
+    // Creates Day of Year column
+    DayOfYear = Table.AddColumn(
+        DayOfMonth,
+        "Day_Of_Year",
+        each Date.DayOfYear([Date]),
+        Int64.Type
+    ),
+
+    // Creates Day of Week column
+    DayOfWeek = Table.AddColumn(
+        DayOfYear,
+        "Day_Of_Week",
+        each Date.DayOfWeek([Date]),
+        Int64.Type
+    ),
+
+    // Creates Day Name column
+    DayName = Table.AddColumn(
+        DayOfWeek,
+        "Day_Name",
+        each Date.DayOfWeekName([Date], "en-US"),
+        type text
+    ),
+
+    // Creates Quarter column
+    Quarter = Table.AddColumn(
+        DayName,
+        "Quarter",
+        each Date.QuarterOfYear([Date]),
+        Int64.Type
+    ),
+
+    // Creates Week of Year column
+    WeekOfYear = Table.AddColumn(
+        Quarter,
+        "Week_Of_Year",
+        each Date.WeekOfYear([Date]),
+        Int64.Type
+    ),
+
+    // Creates Week of Month column
+    WeekOfMonth = Table.AddColumn(
+        WeekOfYear,
+        "Week_Of_Month",
+        each Date.WeekOfMonth([Date]),
+        Int64.Type
+    )
+
+in
+    WeekOfMonth
