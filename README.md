@@ -4,7 +4,7 @@ A Power BI sales analytics project built around a fictional bookstore dataset.
 
 The project combines **business analysis, dashboard design, data modeling, DAX, and Power Query**, while also providing reusable components that can be adapted to other Power BI projects.
 
-The repository can be used both as a **portfolio project** and as a reference for dashboard layouts, measures, Power Query scripts, and report structure.
+This repository can be used both as a **portfolio project** and as a reference for Power BI layouts, measures, Power Query scripts, and report structure.
 
 ---
 
@@ -12,7 +12,9 @@ The repository can be used both as a **portfolio project** and as a reference fo
 
 ### Executive Sales Overview
 
-![Executive Sales Overview](images/Executive%20Sales%20Overview.png)
+<p align="center">
+  <img src="./images/executive-sales-overview.png" width="100%" alt="Executive Sales Overview">
+</p>
 
 The executive page provides a high-level view of business performance, including sales evolution, targets, regional performance, and sales channels.
 
@@ -20,7 +22,9 @@ The executive page provides a high-level view of business performance, including
 
 ### Product & Customer Analysis
 
-![Product & Customer Analysis](images/Product%20%26%20Customer%20Analysis.png)
+<p align="center">
+  <img src="./images/product-customer-analysis.png" width="100%" alt="Product and Customer Analysis">
+</p>
 
 This page focuses on product and customer behavior, including:
 
@@ -37,7 +41,9 @@ This page focuses on product and customer behavior, including:
 
 ### Order Details
 
-![Order Details](images/Order%20Details.png)
+<p align="center">
+  <img src="./images/order-details.png" width="100%" alt="Order Details">
+</p>
 
 A detailed transactional view that allows users to explore the individual orders behind the dashboard KPIs.
 
@@ -47,7 +53,7 @@ It includes information such as customer, product, country, sales channel, quant
 
 ## 🎯 Project Purpose
 
-This repository was created not only to demonstrate a sales analysis, but also to provide examples of reusable Power BI components.
+This repository was created not only to demonstrate a sales analysis, but also to provide examples of **reusable Power BI components**.
 
 Some elements of the project can be adapted to other dashboards, including:
 
@@ -106,16 +112,26 @@ The script can be adapted to different date ranges and reused in other Power BI 
 
 ---
 
-## 📁 Repository Files
+## 📁 Repository Structure
 
-| File                              | Description                           |
-| --------------------------------- | ------------------------------------- |
-| `Book Store Dashboard.pbix`       | Complete Power BI project             |
-| `Book Store Dashboard.pbit`       | Reusable Power BI template            |
-| `Executive Sales Overview.png`    | Executive dashboard preview           |
-| `Product & Customer Analysis.png` | Product and customer analysis preview |
-| `Order Details.png`               | Transaction-level dashboard preview   |
-| `Calendar_Table.m`                | Reusable Power Query calendar table   |
+```text
+The-Book-Sales-Analytics-Dashboard/
+│
+├── README.md
+├── Book Store Dashboard.pbix
+├── Book Store Dashboard.pbit
+│
+├── images/
+│   ├── executive-sales-overview.png
+│   ├── product-customer-analysis.png
+│   └── order-details.png
+│
+├── power-query/
+│   └── Calendar_Table.m
+│
+└── docs/
+    └── DAX Measures.md
+```
 
 ---
 
@@ -158,7 +174,7 @@ You can:
 1. Download the `.pbix` file to explore the complete project.
 2. Download the `.pbit` file to reuse the dashboard structure.
 3. Copy the Power Query calendar script into another Power BI project.
-4. Use the screenshots as references for dashboard layout and visual design.
+4. Use the dashboard layouts as references for future Power BI projects.
 5. Adapt the DAX measures and visual structures to your own datasets.
 
 ---
@@ -167,4 +183,4 @@ You can:
 
 **Marco Barthem**
 
-Production Engineer focused on Data Analytics, Business Intelligence, Power BI, and data-driven decision making.
+Production Engineer focused on **Data Analytics, Business Intelligence, Power BI, and data-driven decision making**.
